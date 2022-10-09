@@ -21,6 +21,7 @@ namespace ConsoleApp2
 
             string sonuc=time>=6 && time<11 ?"Günaydın": time<=18? "iyi günler":"iyi geceler";
              Console.WriteLine(sonuc);
+             Console.WriteLine(sonuc);
                 
            
             Console.ReadLine();
