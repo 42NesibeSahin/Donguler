@@ -11,19 +11,56 @@ namespace ConsoleApp2
         static void Main(string[] args)
         {
             Console.WriteLine("Nesibe SAHİN");
-            int time=DateTime.Now.Hour;
-            if(time>=6 && time<11)
-                Console.WriteLine("Günaydın");
-            else if(time<=18)
-                Console.WriteLine("iyi günler");
-            else 
-                Console.WriteLine("iyi geceler");
 
-            string sonuc=time>=6 && time<11 ?"Günaydın": time<=18? "iyi günler":"iyi geceler";
-             Console.WriteLine(sonuc);
-             Console.WriteLine(sonuc);
-                
-           
+            int month= DateTime.Now.Month;
+            string ay;
+            switch (month)
+            {
+                  case 1:
+                    Console.WriteLine("Ocak");
+                    break;
+                case 3:
+                    Console.WriteLine("Mart");
+                    break;
+                case 5:
+                    Console.WriteLine("Haziran");
+                    break;
+                case 10:
+                    Console.WriteLine("Ekim");
+                    break;
+                default:
+                    Console.WriteLine("Hatalı giris");
+                    break;
+
+            }
+            
+            switch (month)
+	        {
+                case 1:
+                case 2:
+                case 12:
+                    Console.WriteLine("Kış");
+                    break;
+
+                case 3:
+                case 4:
+                case 5:
+                    Console.WriteLine("ilk bahar");
+                    break;
+
+                case 6:
+                case 7:
+                case 8:
+                    Console.WriteLine("yaz");
+                    break;
+                case 9:
+                case 10:
+                case 11:
+                    Console.WriteLine("son bahar");
+                    break;
+		        default:
+                    break;
+	        }
             Console.ReadLine();
         }
     }
