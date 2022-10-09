@@ -12,55 +12,47 @@ namespace ConsoleApp2
         {
             Console.WriteLine("Nesibe SAHİN");
 
-            int month= DateTime.Now.Month;
-            string ay;
-            switch (month)
-            {
-                  case 1:
-                    Console.WriteLine("Ocak");
-                    break;
-                case 3:
-                    Console.WriteLine("Mart");
-                    break;
-                case 5:
-                    Console.WriteLine("Haziran");
-                    break;
-                case 10:
-                    Console.WriteLine("Ekim");
-                    break;
-                default:
-                    Console.WriteLine("Hatalı giris");
-                    break;
+            Console.WriteLine("Bir sayi giriniz:");
+            int sayi=int.Parse(Console.ReadLine());
+            for (int i = 1; i <= sayi; i++)
+			{
+                if(i%2==1)
+                    Console.WriteLine(i);
+			}
 
-            }
-            
-            switch (month)
-	        {
-                case 1:
-                case 2:
-                case 12:
-                    Console.WriteLine("Kış");
-                    break;
+            Console.WriteLine("*****************");
 
-                case 3:
-                case 4:
-                case 5:
-                    Console.WriteLine("ilk bahar");
-                    break;
+            int tekSayi=0;
+            int ciftSAyi=0;
+            for (int i = 1; i <= sayi; i++)
+		    {
+                if(i%2==1)
+                 tekSayi =+ tekSayi+i;
+                else
+                 ciftSAyi =+ ciftSAyi+i;
+		    }
 
-                case 6:
-                case 7:
-                case 8:
-                    Console.WriteLine("yaz");
+             Console.WriteLine("Tek sayi:"+tekSayi);
+             Console.WriteLine("cift sayi :"+ciftSAyi);
+
+
+            Console.WriteLine("*****************");
+
+            for (int i = 1; i <= sayi; i++)
+			{
+                if(i==4)
                     break;
-                case 9:
-                case 10:
-                case 11:
-                    Console.WriteLine("son bahar");
-                    break;
-		        default:
-                    break;
-	        }
+                Console.WriteLine(i);
+			}
+
+            Console.WriteLine("*****************");
+             for (int i = 1; i <= sayi; i++)
+			{
+                if(i==4)
+                    continue;
+                Console.WriteLine(i);
+			}
+    
             Console.ReadLine();
         }
     }
