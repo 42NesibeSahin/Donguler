@@ -10,36 +10,36 @@ namespace ConsoleApp2
     {
         static void Main(string[] args)
         {
-            Console.Write("Ortalaması hesaplanacak sayıyı giriniz:");
-            int sayi=int.Parse(Console.ReadLine());
-            int sayac=1;
+            string[] renkler=new string[5];
+            string[] hayvanlar = {"kedi", "kopek", "inek", "sinek"};
+            int[] dizi;
+            dizi=new int[5];
+
+            renkler[0]="siyah";
+            renkler[1]="beyaz";
+            dizi[0]=5;
+            dizi[3]=4;
+
+            Console.WriteLine(renkler[1]);
+            Console.WriteLine(dizi[3]);
+            Console.WriteLine(hayvanlar[0]);
+
+            Console.WriteLine("\n***************\n");
+
+            Console.WriteLine("Lütfen dizi elaman sayisini giriniz:");
+            int sayi_uzunluk=int.Parse(Console.ReadLine());
+            int[] sayiDizisi= new int[sayi_uzunluk];
             int toplam=0;
-            while (sayac<=sayi)
-	        {
-                toplam+=sayac;
-                sayac++;
-	        }
-            Console.WriteLine("Ortalama: "+toplam/sayi);
+            for (int i = 0; i < sayi_uzunluk; i++)
+			{
+                Console.Write("{0}. elamanı giriniz: ",i+1);
+                sayiDizisi[i]=int.Parse(Console.ReadLine());
+                toplam += sayiDizisi[i];
+			}
+
+            Console.WriteLine("Ortalama : "+ toplam/sayi_uzunluk);
 
 
-            Console.WriteLine("\n*************");
-
-            char chacercter='a';
-            while (chacercter < 'z')
-            {
-                Console.Write(chacercter);
-                chacercter++;
-            }
-
-         
-           Console.WriteLine("\n*************");
-
-
-           string[] arabalar = {"BMV","FORD", "TOYOTO", "NISSAN"};
-           foreach (var item in arabalar)
-	       {
-               Console.WriteLine(item);
-	       }
            Console.ReadLine();
         }
     }
