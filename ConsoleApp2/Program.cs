@@ -10,50 +10,37 @@ namespace ConsoleApp2
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Nesibe SAHİN");
-
-            Console.WriteLine("Bir sayi giriniz:");
+            Console.Write("Ortalaması hesaplanacak sayıyı giriniz:");
             int sayi=int.Parse(Console.ReadLine());
-            for (int i = 1; i <= sayi; i++)
-			{
-                if(i%2==1)
-                    Console.WriteLine(i);
-			}
-
-            Console.WriteLine("*****************");
-
-            int tekSayi=0;
-            int ciftSAyi=0;
-            for (int i = 1; i <= sayi; i++)
-		    {
-                if(i%2==1)
-                 tekSayi =+ tekSayi+i;
-                else
-                 ciftSAyi =+ ciftSAyi+i;
-		    }
-
-             Console.WriteLine("Tek sayi:"+tekSayi);
-             Console.WriteLine("cift sayi :"+ciftSAyi);
+            int sayac=1;
+            int toplam=0;
+            while (sayac<=sayi)
+	        {
+                toplam+=sayac;
+                sayac++;
+	        }
+            Console.WriteLine("Ortalama: "+toplam/sayi);
 
 
-            Console.WriteLine("*****************");
+            Console.WriteLine("\n*************");
 
-            for (int i = 1; i <= sayi; i++)
-			{
-                if(i==4)
-                    break;
-                Console.WriteLine(i);
-			}
+            char chacercter='a';
+            while (chacercter < 'z')
+            {
+                Console.Write(chacercter);
+                chacercter++;
+            }
 
-            Console.WriteLine("*****************");
-             for (int i = 1; i <= sayi; i++)
-			{
-                if(i==4)
-                    continue;
-                Console.WriteLine(i);
-			}
-    
-            Console.ReadLine();
+         
+           Console.WriteLine("\n*************");
+
+
+           string[] arabalar = {"BMV","FORD", "TOYOTO", "NISSAN"};
+           foreach (var item in arabalar)
+	       {
+               Console.WriteLine(item);
+	       }
+           Console.ReadLine();
         }
     }
 }
