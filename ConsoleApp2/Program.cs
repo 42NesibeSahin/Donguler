@@ -9,52 +9,40 @@ namespace ConsoleApp2
     internal class Program
     {
         static void Main(string[] args)
-        { 
-            int[] dizi = {15,25,65,75,8,7,88,12};
-            foreach (var item in dizi)
-	        {
-                Console.WriteLine(item);
-            }
-	        
-             Console.WriteLine("\n///////////////\n");
-            
-            Array.Sort(dizi);
-            foreach (var item in dizi)
-	        {
-                Console.WriteLine(item);
-            }
+        {
+            int a=2, b=3;
+            Console.WriteLine(a+b);
 
-            Console.WriteLine("\n///////////////\n");
-            
-            Array.Clear(dizi,2,2);
-             foreach (var item in dizi)
-	         {
-                Console.WriteLine(item);
-             }
+            int sonuc=Topla(a,b);
+            Console.WriteLine(sonuc);
 
-             Console.WriteLine("\n///////////////\n");
+            Metotlar sinif=new Metotlar();
+            sinif.Yazdir(sonuc.ToString());
 
-            Array.Reverse(dizi);
-             foreach (var item in dizi)
-	         {
-                Console.WriteLine(item);
-             }
+             int sonuc2=sinif.ArttırVeTopla(ref a,ref b);
+             sinif.Yazdir(sonuc2.ToString());
 
-             Console.WriteLine("\n///////////////\n");
-
-             Console.WriteLine(Array.IndexOf(dizi,65));
-
-              Console.WriteLine("\n///////////////\n");
-
-             Array.Resize<int>(ref dizi,9);
-            dizi[8]=2;
-             foreach (var item in dizi)
-	         {
-                Console.WriteLine(item);
-             }
-
-           
-           Console.ReadLine();
+          
+             Console.ReadLine();
+        
+        }
+        public static int Topla(int deger1, int deger2)
+        {
+            return (deger1+deger2);
         }
     }
-}
+
+    class Metotlar
+    {
+        public void Yazdir(string yazi)
+        {
+            Console.WriteLine(yazi);
+        }
+        public int ArttırVeTopla(ref int deger1, ref int deger2)
+        {
+            deger1+=1;
+            deger2+=1;
+            return (deger1+deger2);
+        }
+    }
+ }
