@@ -12,98 +12,83 @@ namespace ConsoleApp2
     {
         static void Main(string[] args)
         {
-          int result=1;
-            for (int i = 1; i < 5; i++)
-			{
-                result=result*3;
-			}
-            Console.WriteLine(result);
+             Console.WriteLine("************* ODEV1 ************ ");
 
-            Islemler sinif_islem=new Islemler();
-            Console.WriteLine(sinif_islem.Kuvvet(3,4));
-
-            string ifade="Nesibe ŞAHİN";
-
-           
-            bool sonux=ifade.BoslukVarMi();
-            Console.Write(sonux);
-
-            Console.WriteLine(ifade.BuyukHarfeCevir());
-            Console.WriteLine(ifade.KucukHarfeCevir());
-            int[] dizi = {1,4,8,75,3};
-            dizi.KucuktenBuyugeSirala();
-            dizi.EkranaYazdir();
-
-            int sayi=5;
-           Console.WriteLine(ifade.IlkKarakter());
-           Console.WriteLine(sayi.CiftSayiMi());
+             Console.Write("Kac adet sayi girmek istiyorsunuz: ");
+             int sayi1=int.Parse(Console.ReadLine());
+             int[] dizi1=new int[sayi1];
+             for (int i = 0; i < sayi1; i++)
+	         {
+                Console.Write("sayi giriniz :");
+                dizi1[i]=int.Parse(Console.ReadLine());
+	         }
+             Console.WriteLine("Girilen sayilardan çift sayi olanlar ");
+             foreach (var item in dizi1)
+	         {
+                if(item%2==0)
+                    Console.WriteLine(item);
+	         }
 
 
 
-            Console.ReadLine();
+             Console.WriteLine("************* ODEV2 ************ ");
+
+             Console.Write("ilk sayıyı giriniz: ");
+             int sayi2_1=int.Parse(Console.ReadLine());
+             Console.Write("ikinci sayıyı giriniz: ");
+             int sayi2_2=int.Parse(Console.ReadLine());
+             int[] dizi2=new int[sayi2_1];
+             for (int i = 0; i < sayi2_1; i++)
+	         {
+                Console.Write("sayi giriniz :");
+                dizi2[i]=int.Parse(Console.ReadLine());
+	         }
+             Console.WriteLine("Girilen sayilardan eşit veya tam bölünen sayilar ");
+             foreach (var item in dizi2)
+	         {
+                if(item%sayi2_2==0 || item==sayi2_2)
+                    Console.WriteLine(item);
+	         }
+
+
+
+             Console.WriteLine("************* ODEV3 ************ ");
+
+             Console.Write("Kac adet kelime girmek istiyorsunuz: ");
+             int sayi3=int.Parse(Console.ReadLine());
+             string[] dizi3=new string[sayi3];
+             for (int i = 0; i < sayi3; i++)
+	         {
+                Console.Write("kelime giriniz :");
+                dizi3[i]=Console.ReadLine().ToString();
+             }
+             Array.Reverse(dizi3);
+             Console.WriteLine("Girilen kelimlerin sondan başa doğru yazılışı");
+             foreach (var item in dizi3)
+                    Console.WriteLine(item);
+
+
+
+             Console.WriteLine("************* ODEV4 ************ ");
+             Console.Write("Bir cümle yazınız: ");
+             harfSay(Console.ReadLine());
+
+
+             Console.ReadLine();
+        }
+        private static void harfSay(string cumle)
+        {
+            if (!string.IsNullOrWhiteSpace(cumle))
+            {
+                int sayac = cumle.Length;
+                string harf = cumle.Substring(0, 1);
+                cumle = cumle.Replace(harf, "");
+                sayac -= cumle.Length;
+                Console.WriteLine($"{harf} -> {sayac} Adet");
+                harfSay(cumle);
+            }
         }
         
-    }
-
-    public class Islemler
-    {
-        public int Kuvvet(int sayi,int us)
-        {
-            if(us<2)
-                return sayi;
-            return Kuvvet(sayi,us-1)*sayi;
-        }
-    }
-
-    public static class Extension
-    {
-        public static bool  BoslukVarMi(this string param)
-        {
-            return param.Contains(" ");
-        }
-
-        
-     
-
-      // public static string ElemaDegistir(this string param)
-       // {
-       //     string[] dizi=param.Split(" ");
-       //     return string.Join(" ",dizi);
-       // }
-
-        public static string BuyukHarfeCevir(this string param)
-        {
-            return param.ToUpper();
-        }
-
-        public static string KucukHarfeCevir(this string param)
-        {
-            return param.ToLower();
-        }
-
-        public static int[] KucuktenBuyugeSirala(this int[] param)
-        {
-            Array.Sort(param);
-            return param;
-        }
-
-        public static void EkranaYazdir(this int[] param)
-        {
-            foreach (var item in param)
-                Console.WriteLine(item);
-        }
-
-        public static bool CiftSayiMi(this int param)
-        {
-            return param%2==0;
-        }
-
-        public static string IlkKarakter(this string param)
-        {
-            return param.Substring(0,1);
-        }
-
-
     }
 
     
