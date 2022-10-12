@@ -10,39 +10,42 @@ namespace ConsoleApp2
     {
         static void Main(string[] args)
         {
-            int a=2, b=3;
-            Console.WriteLine(a+b);
+            string sayi="123";
+            bool sonuc=int.TryParse(sayi,out int outSayi);
+            if(sonuc)
+                Console.WriteLine("İşlem başarılı :"+ outSayi);
+            else
+                Console.WriteLine("işlem başarısız");
 
-            int sonuc=Topla(a,b);
-            Console.WriteLine(sonuc);
-
+            
             Metotlar sinif=new Metotlar();
-            sinif.Yazdir(sonuc.ToString());
+            sinif.Topla(4,5,out int toplamSonuc);
+            sinif.EkranaYazdir(toplamSonuc);
+            sinif.EkranaYazdir("Nesibe","şahin");
+            sinif.EkranaYazdir("7");
 
-             int sonuc2=sinif.ArttırVeTopla(ref a,ref b);
-             sinif.Yazdir(sonuc2.ToString());
-
-          
-             Console.ReadLine();
+            Console.ReadLine();
+        }
         
-        }
-        public static int Topla(int deger1, int deger2)
-        {
-            return (deger1+deger2);
-        }
     }
 
     class Metotlar
     {
-        public void Yazdir(string yazi)
+       public void Topla(int a,int b , out int toplam)
         {
-            Console.WriteLine(yazi);
+            toplam=a+b;
         }
-        public int ArttırVeTopla(ref int deger1, ref int deger2)
+        public void EkranaYazdir(string veri)
         {
-            deger1+=1;
-            deger2+=1;
-            return (deger1+deger2);
+            Console.WriteLine(veri);
+        }
+        public void EkranaYazdir(int veri)
+        {
+            Console.WriteLine(veri);
+        }
+        public void EkranaYazdir(string veri1, string veri2)
+        {
+            Console.WriteLine(veri1+ veri2);
         }
     }
  }
