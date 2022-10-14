@@ -12,70 +12,106 @@ namespace ConsoleApp2
     {
         static void Main(string[] args)
         {
-             Console.WriteLine("************** DATETİME ***********\n");
-             Console.WriteLine(DateTime.Now);
-             Console.WriteLine(DateTime.Now.Date);
-             Console.WriteLine(DateTime.Now.Day);
-             Console.WriteLine(DateTime.Now.Month);
-             Console.WriteLine(DateTime.Now.Year);
-             Console.WriteLine(DateTime.Now.Hour);
-             Console.WriteLine(DateTime.Now.Minute);
-             Console.WriteLine(DateTime.Now.Second);
+            List<int> sayiListesi= new List<int>();
+            List<string> renkListesi= new List<string>();
 
-             Console.WriteLine(DateTime.Now.DayOfWeek);
-             Console.WriteLine(DateTime.Now.DayOfYear);
+            sayiListesi.Add(10);
+            sayiListesi.Add(4);
+            sayiListesi.Add(6);
+            sayiListesi.Add(12);
+            sayiListesi.Add(20);
+            sayiListesi.Add(1);
+            sayiListesi.Add(70);
 
-            
-             Console.WriteLine(DateTime.Now.ToShortDateString());
-             Console.WriteLine(DateTime.Now.ToLongDateString());
-             Console.WriteLine(DateTime.Now.ToLongTimeString());
-             Console.WriteLine(DateTime.Now.ToShortTimeString());
+            renkListesi.Add("kırmızı");
+            renkListesi.Add("sarı");
+            renkListesi.Add("mavi");
+            renkListesi.Add("yeşil");
+            renkListesi.Add("siyah");
+            renkListesi.Add("mor");
 
-             Console.WriteLine(DateTime.Now.AddDays(2));
-             Console.WriteLine(DateTime.Now.AddHours(3));
-             Console.WriteLine(DateTime.Now.AddSeconds(5));
-             Console.WriteLine(DateTime.Now.AddMonths(5));
-             Console.WriteLine(DateTime.Now.AddYears(2));
-             Console.WriteLine(DateTime.Now.AddMilliseconds(7));
+            Console.WriteLine(sayiListesi.Count);
+            Console.WriteLine(renkListesi.Count);
 
-             Console.WriteLine(DateTime.Now.ToString("dd"));
-             Console.WriteLine(DateTime.Now.ToString("ddd"));
-             Console.WriteLine(DateTime.Now.ToString("ddd"));
+            Console.WriteLine("\n*******   Sayılar   *******\n");
+            foreach (var item in sayiListesi)
+	            Console.WriteLine(item);
 
-             Console.WriteLine(DateTime.Now.ToString("MM"));
-             Console.WriteLine(DateTime.Now.ToString("MMM"));
-            Console.WriteLine(DateTime.Now.ToString("MMMM"));
+            Console.WriteLine("\n*******   Renkler   ********\n");
+            foreach (var item in renkListesi)
+	            Console.WriteLine(item);
 
-             Console.WriteLine(DateTime.Now.ToString("yy"));
-             Console.WriteLine(DateTime.Now.ToString("yyyy"));
+            sayiListesi.Remove(4);
+            renkListesi.Remove("yeşil");
 
-             Console.WriteLine("\n************** MATH ***********\n");
+            sayiListesi.RemoveAt(1);
+            renkListesi.RemoveAt(1);
 
-            Console.WriteLine(Math.Abs(-25)); //mutlak
-            Console.WriteLine(Math.Sin(10));
-            Console.WriteLine(Math.Cos(10));
-            Console.WriteLine(Math.Tan(10));
+            Console.WriteLine("\n*******   Sayılar   *******\n");
+            sayiListesi.ForEach(sayi=> Console.WriteLine(sayi));
 
-            Console.WriteLine(Math.Ceiling(22.3)); //uste yuvarla
-            Console.WriteLine(Math.Round(22.3)); // en yakına
-            Console.WriteLine(Math.Round(22.7));
-            Console.WriteLine(Math.Floor(22.7)); // alta yuvarla
+            Console.WriteLine("\n*******   Renkler   ********\n");
+            renkListesi.ForEach(sayi=> Console.WriteLine(sayi));
 
-           Console.WriteLine(Math.Max(2,6));
-            Console.WriteLine(Math.Min(22,85));
+            if(sayiListesi.Contains(12))          //liste içeriside arama
+                Console.WriteLine("\n12 liste içerisnde bulundu... ");
 
-            Console.WriteLine(Math.Pow(3,4)); // üslü ifade
-            Console.WriteLine(Math.Sqrt(9));  // karekök
-            Console.WriteLine(Math.Log(9));
-           Console.WriteLine(Math.Exp(3));  // e üzeri 3
-            Console.WriteLine(Math.Log(10));
+            Console.WriteLine(renkListesi.BinarySearch("Sarı"));   //Elemanın indexine erişme
+
+            string[] hayvanlar = {"kedi", "kopek", "inek", "tavsan"};
+            List<string> hayvanListesi= new List<string>(hayvanlar);     //diziyi listeye aktarma
+
+            hayvanListesi.Clear();
 
 
-           
+            List<Kullanicilar> kullanicilarListesi= new List<Kullanicilar>();
+            Kullanicilar kullanici1=new Kullanicilar();
+            kullanici1.Isim="Nesibe";
+            kullanici1.Soyisim="ŞAHİN";
+            kullanici1.Yas=23;
+
+            Kullanicilar kullanici2=new Kullanicilar();
+            kullanici2.Isim="Fırat Servan";
+            kullanici2.Soyisim="ÜÇKARDEŞ";
+            kullanici2.Yas=29;
+            kullanicilarListesi.Add(kullanici1);
+            kullanicilarListesi.Add(kullanici2);
+
+            List<Kullanicilar> yeniListe=new List<Kullanicilar>();
+            yeniListe.Add(new Kullanicilar()
+            {
+                Isim="Nesibe",
+                Soyisim="ŞAHİN",
+                Yas=28
+            });
+
+            foreach (var item in kullanicilarListesi)
+	        {
+                Console.WriteLine("Kullanıcı adı: "+item.Isim);
+                Console.WriteLine("Kullanıcı soyadı: "+item.Soyisim);
+                Console.WriteLine("Kullanıcı yaşı: "+item.Yas);
+	        }
+
+
+
+
+
+
+
 
             Console.ReadLine();
         }
     }
+    public class Kullanicilar
+    {
+         private string isim ;
+         private string soyisim;
+         private int yas;
 
+        public int Yas { get => yas; set => yas = value; }
+        public string Isim { get => isim; set => isim = value; }
+        public string Soyisim { get => soyisim; set => soyisim = value; }
+
+    }
     
  }
